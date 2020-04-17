@@ -47,12 +47,21 @@ class Dataset
   end
 
   def show
+    binding.pry
     mongo[name].find.batch_size(1000).each{ |portfolio| puts portfolio }
   end
 
   def destroy
     return unless name
     mongo[name].drop
+  end
+
+  def present?
+    mongo.database.collection_names.include?(name.to_s)
+  end
+
+  def hoge
+    mongo[name].find(return: 4.6).map{|p| p[:sharp_ratio]}.max
   end
 
   private

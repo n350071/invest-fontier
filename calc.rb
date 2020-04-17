@@ -39,6 +39,10 @@ data.correlations = [[1],
 #                       [-0.18, 0.75, 1]
 #                     ]
 
+if data.present?
+  data.show
+  return
+end
 
 if data.create
 else
@@ -48,3 +52,5 @@ end
 
 data.show
 
+# 1. リターンを計算して、4.60, 4.70, などピッタリ0.1刻みのものだけを保存する。（←ここの件数が高々１万件程度であれば、現実的だろう）
+# 2. 各リターンについて、最大のシャープレシオとなるものを選ぶ
