@@ -60,7 +60,7 @@ class Dataset
     mongo.database.collection_names.include?(name.to_s)
   end
 
-  def hoge
+  def spike_method
     mongo[name].find(return: 4.6).map{|p| p[:sharp_ratio]}.max
   end
 
